@@ -16,181 +16,186 @@
 
 <template name="hello">
 
-    {{#if connected false}}
+    {{#if enabled}}
+        {{#if connected false}}
 
-        <div class="row">
-            <div class="col s12">
-                <p>Make sure Arduino 'IoT City' is close and switched on before connecting.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12">
-                <a class="waves-effect waves-light btn full-width" id="connect">Verbinden met IoT City</a>
-            </div>
-        </div>
-
-        {{else}}
-
-        <div class="row">
-            <div class="valign-wrapper">
-                <div class="col s6">
-                    <h5 class="valign">Boat</h5>
+            <div class="row">
+                <div class="col s12">
+                    <p>Make sure Arduino 'IoT City' is close and switched on before connecting.</p>
                 </div>
-                <div class="col s6">
-                    <div class="switch valign">
-                        <label>
-                            Initial
-                            <input type="checkbox">
-                            <span class="lever"></span>
-                            Target
-                        </label>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <a class="waves-effect waves-light btn full-width" id="connect">Verbinden met IoT City</a>
+                </div>
+            </div>
+
+            {{else}}
+
+            <div class="row">
+                <div class="valign-wrapper">
+                    <div class="col s6">
+                        <h5 class="valign">Boat</h5>
+                    </div>
+                    <div class="col s6">
+                        <div class="switch valign">
+                            <label>
+                                Initial
+                                <input type="checkbox">
+                                <span class="lever"></span>
+                                Target
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="valign-wrapper">
-                <div class="col s6">
-                    <h5 class="valign">Car</h5>
-                </div>
-                <div class="col s6">
-                    <div class="switch valign">
-                        <label>
-                            Initial
-                            <input type="checkbox">
-                            <span class="lever"></span>
-                            Target
-                        </label>
+            <div class="row">
+                <div class="valign-wrapper">
+                    <div class="col s6">
+                        <h5 class="valign">Car</h5>
+                    </div>
+                    <div class="col s6">
+                        <div class="switch valign">
+                            <label>
+                                Initial
+                                <input type="checkbox">
+                                <span class="lever"></span>
+                                Target
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="valign-wrapper">
-                <div class="col s6">
-                    <h5 class="valign">Truck</h5>
-                </div>
-                <div class="col s6">
-                    <div class="switch valign">
-                        <label>
-                            Initial
-                            <input type="checkbox">
-                            <span class="lever"></span>
-                            Target
-                        </label>
+            <div class="row">
+                <div class="valign-wrapper">
+                    <div class="col s6">
+                        <h5 class="valign">Truck</h5>
+                    </div>
+                    <div class="col s6">
+                        <div class="switch valign">
+                            <label>
+                                Initial
+                                <input type="checkbox">
+                                <span class="lever"></span>
+                                Target
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="valign-wrapper">
-                <div class="col s6">
-                    <h5 class="valign">Ad</h5>
-                </div>
-                <div class="input-field col s6">
-                    <select class="valign">
-                        <option value="" selected>Choose your option</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
+            <div class="row">
+                <div class="valign-wrapper">
+                    <div class="col s6">
+                        <h5 class="valign">Ad</h5>
+                    </div>
+                    <div class="input-field col s6">
+                        <select class="valign">
+                            <option value="" selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="valign-wrapper">
-                <div class="col s6 label-slider">
-                    <h5 class="valign">Crane</h5>
-                </div>
-                <div class="cal s6">
-                    <p class="range-field valign">
-                        <input type="range" id="crane" min="0" max="180" />
-                    </p>
+            <div class="row">
+                <div class="valign-wrapper">
+                    <div class="col s6 label-slider">
+                        <h5 class="valign">Crane</h5>
+                    </div>
+                    <div class="cal s6">
+                        <p class="range-field valign">
+                            <input type="range" id="crane" min="0" max="180" />
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="valign-wrapper">
-                <div class="col s6 label-slider">
-                    <h5 class="valign">Machine</h5>
-                </div>
-                <div class="cal s6">
-                    <p class="range-field valign">
-                        <input type="range" id="crane" min="0" max="255" />
-                    </p>
+            <div class="row">
+                <div class="valign-wrapper">
+                    <div class="col s6 label-slider">
+                        <h5 class="valign">Machine</h5>
+                    </div>
+                    <div class="cal s6">
+                        <p class="range-field valign">
+                            <input type="range" id="crane" min="0" max="255" />
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="valign-wrapper">
-                <div class="col s6 label-slider">
-                    <h5 class="valign">Train speed</h5>
-                </div>
-                <div class="cal s6">
-                    <p class="range-field valign">
-                        <input type="range" id="crane" min="0" max="255" />
-                    </p>
+            <div class="row">
+                <div class="valign-wrapper">
+                    <div class="col s6 label-slider">
+                        <h5 class="valign">Train speed</h5>
+                    </div>
+                    <div class="cal s6">
+                        <p class="range-field valign">
+                            <input type="range" id="crane" min="0" max="255" />
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="valign-wrapper">
-                <div class="col s6 label-slider">
-                    <h5 class="valign">Street light</h5>
-                </div>
-                <div class="cal s6">
-                    <p class="range-field valign">
-                        <input type="range" id="crane" min="0" max="255" />
-                    </p>
+            <div class="row">
+                <div class="valign-wrapper">
+                    <div class="col s6 label-slider">
+                        <h5 class="valign">Street light</h5>
+                    </div>
+                    <div class="cal s6">
+                        <p class="range-field valign">
+                            <input type="range" id="crane" min="0" max="255" />
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="valign-wrapper">
-                <div class="col s6 label-slider">
-                    <h5 class="valign">Light Red</h5>
-                </div>
-                <div class="cal s6">
-                    <p class="range-field valign">
-                        <input type="range" id="crane" min="0" max="255" />
-                    </p>
+            <div class="row">
+                <div class="valign-wrapper">
+                    <div class="col s6 label-slider">
+                        <h5 class="valign">Light Red</h5>
+                    </div>
+                    <div class="cal s6">
+                        <p class="range-field valign">
+                            <input type="range" id="crane" min="0" max="255" />
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="valign-wrapper">
-                <div class="col s6 label-slider">
-                    <h5 class="valign">Light Green</h5>
-                </div>
-                <div class="cal s6">
-                    <p class="range-field valign">
-                        <input type="range" id="crane" min="0" max="255" />
-                    </p>
+            <div class="row">
+                <div class="valign-wrapper">
+                    <div class="col s6 label-slider">
+                        <h5 class="valign">Light Green</h5>
+                    </div>
+                    <div class="cal s6">
+                        <p class="range-field valign">
+                            <input type="range" id="crane" min="0" max="255" />
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="valign-wrapper">
-                <div class="col s6 label-slider">
-                    <h5 class="valign">Light Blue</h5>
-                </div>
-                <div class="cal s6">
-                    <p class="range-field valign">
-                        <input type="range" id="crane" min="0" max="255" />
-                    </p>
+            <div class="row">
+                <div class="valign-wrapper">
+                    <div class="col s6 label-slider">
+                        <h5 class="valign">Light Blue</h5>
+                    </div>
+                    <div class="cal s6">
+                        <p class="range-field valign">
+                            <input type="range" id="crane" min="0" max="255" />
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
+        {{/if}}
+
+    {{else}}
+        <div class="card-panel white-text red darken-2 full-width">Please enable bluetooth</div>
     {{/if}}
 
 </template>

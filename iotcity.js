@@ -7,62 +7,46 @@ var redbear = {
 };
 
 if(Meteor.isClient) {
-  Session.setDefault("connected", false);
 
-  Template.hello.events({
-    'click #connect': function(event, template) {
-      event.preventDefault();
-      if (Meteor.isCordova) {
-        Meteor.startup(function () {
+    Session.setDefault("connected", false);
 
-          ble.scan([], 5,
-              function(peripherals){
+    ble.isEnabled(function() {
+        Session.set("enabled", true);
+    }, function() {
+        Session.set("enabled", false);
+    });
+
+    Template.hello.events({
+        'click #connect': function(event, template) {
+            event.preventDefault();
+            ble.scan([], 5,
+            function(peripherals){
                 connectDevice(DEVICE_ID);
-              },
-              function(){
+            },
+            function(){
                 console.log('No devices found');
-              }
-          );
-        });
-      }
-    }
-      /*
-    'click #data' :function(event, template) {
-      event.preventDefault();
-      if (Meteor.isCordova) {
-        Meteor.startup(function () {
+            });
+        }
+    });
 
-          data = "PENBUj0xPg==";
-
-          ble.writeWithoutResponse(DEVICE_ID, redbear.serviceUUID, redbear.txCharacteristic, data, function() {
-            Session.set("counter", "Successful data transmission");
-          }, function(error) {
-            console.log(error);
-            Session.set("counter", "Failed data transmission");
-          });
-        });
-      }
-    }
-    */
-  });
-
-
-  Template.hello.helpers({
-    connected : function(value) {
-      return Session.get("connected") === value;
-    }
-  })
-};
-
-
+    Template.hello.helpers({
+        connected : function(value) {
+            return Session.get("connected") === value;
+        },
+        enabled: function() {
+            return Session.get("enabled");
+        }
+    });
+}
 
 var connectDevice = function (device_id) {
   console.log("here");
   ble.connect(device_id,
+
       function(device){
-        Session.set('connected',true);
+          Session.set('connected',true);
       },
       function(){
-        console.log("connection failed");
+          Session.set('connected',false);
       });
 };

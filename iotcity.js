@@ -8,7 +8,7 @@ var redbear = {
 
 if(Meteor.isClient) {
   Session.setDefault("connected", false);
-  /*
+
   Template.hello.events({
     'click #connect': function(event, template) {
       event.preventDefault();
@@ -25,7 +25,8 @@ if(Meteor.isClient) {
           );
         });
       }
-    },
+    }
+      /*
     'click #data' :function(event, template) {
       event.preventDefault();
       if (Meteor.isCordova) {
@@ -42,8 +43,9 @@ if(Meteor.isClient) {
         });
       }
     }
+    */
   });
-  */
+
 
   Template.hello.helpers({
     connected : function(value) {
@@ -58,9 +60,9 @@ var connectDevice = function (device_id) {
   console.log("here");
   ble.connect(device_id,
       function(device){
-        Session.set('counter',"Connected to "+device.name);
+        Session.set('connected',true);
       },
       function(){
-        Session.set('counter', "Failed to connect to "+ device_id);
+        console.log("connection failed");
       });
 };
